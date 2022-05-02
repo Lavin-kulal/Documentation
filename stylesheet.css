@@ -1,0 +1,66 @@
+body{
+    background: lightgrey;
+    margin: 0;
+    padding: 0;
+}
+.main-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+}
+.content-left{
+    position: sticky;
+    height: 100vh;
+    background: white;
+    top: 0;
+    width: max-content; /* to remove extra space in sides */
+}
+.content-left-heading{
+    text-align: center;
+    color: hsl(106deg 94% 11%);
+}
+.content-left-buttons{
+    overflow-y: scroll;
+    height: 100% ;/* height is for scrolling is required*/
+    text-shadow: 1px 1px black;
+    text-align: center;
+
+}
+.content-left-buttons a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Georgia, serif;
+    color: #4814a5;
+}
+.content-left-buttons a:hover {
+    color: rgb(16, 153, 245);
+  }
+.styling-text h2{
+    color: rgb(94 11 43);
+}
+h2:hover{
+    color: rgb(43, 5, 65);
+}
+.backgroundchanges{
+    padding:10px;
+    background:yellow;
+    background: #e4c6ce;
+    width: 70%;
+    border-radius: 2px;
+    box-shadow: 1px 1px black;
+}
+@media only screen and (max-width:600px){
+    .main-container{
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        background: #9dd4e6;
+    }
+    .content-left{
+        position: relative;
+        width:100%;
+        background: rgb(239 205 205);
+        height: 19rem;
+        overflow-y: auto;/* verflow property is given to stop the content coming out from fixed height*/
+    }
+}
