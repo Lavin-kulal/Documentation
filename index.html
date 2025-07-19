@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Documentation - Interactive Guide</title>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for Syntax Highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -22,8 +27,6 @@
             --text-primary: #ffffff;
             --text-secondary: #b3b3b3;
             --accent-blue: #61dafb;
-            --accent-green: #4caf50;
-            --accent-purple: #9c27b0;
             --code-bg: #282c34;
             --sidebar-width: 280px;
             --border-radius: 12px;
@@ -57,18 +60,9 @@
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .content-left::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .content-left::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .content-left::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 3px;
-        }
+        .content-left::-webkit-scrollbar { width: 6px; }
+        .content-left::-webkit-scrollbar-track { background: transparent; }
+        .content-left::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 3px; }
 
         .content-left-heading {
             padding: 2rem 1.5rem 1rem;
@@ -87,10 +81,7 @@
             gap: 0.5rem;
         }
 
-        .content-left-heading h3:before {
-            content: "⚡";
-            font-size: 1.2rem;
-        }
+        .content-left-heading h3:before { content: "⚡"; font-size: 1.2rem; }
 
         .nav-link {
             display: block;
@@ -101,7 +92,6 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
-            position: relative;
         }
 
         .nav-link:hover {
@@ -142,9 +132,7 @@
             transition: transform 0.3s ease;
         }
 
-        .menu-toggle:hover {
-            transform: scale(1.1);
-        }
+        .menu-toggle:hover { transform: scale(1.1); }
 
         /* Content Area */
         .content-right {
@@ -184,7 +172,6 @@
             font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            line-height: 1.7;
         }
 
         .styling-text ul {
@@ -207,7 +194,7 @@
         }
 
         /* Code Blocks */
-        .code-block {
+        pre[class*="language-"] {
             background: var(--code-bg);
             border: 1px solid rgba(247, 223, 30, 0.2);
             border-radius: var(--border-radius);
@@ -215,14 +202,11 @@
             margin: 1.5rem 0;
             font-family: 'JetBrains Mono', 'Consolas', monospace;
             font-size: 0.95rem;
-            line-height: 1.5;
-            color: #abb2bf;
             position: relative;
-            overflow-x: auto;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .code-block:before {
+        pre[class*="language-"]:before {
             content: "JavaScript";
             position: absolute;
             top: 0;
@@ -235,91 +219,36 @@
             border-radius: 0 var(--border-radius) 0 8px;
         }
 
-        /* Syntax Highlighting */
-        .keyword { color: #c678dd; }
-        .string { color: #98c379; }
-        .number { color: #d19a66; }
-        .comment { color: #5c6370; font-style: italic; }
-        .function { color: #61dafb; }
-        .operator { color: #56b6c2; }
-
-        /* Links */
         a {
             color: var(--accent-blue);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        a:hover {
-            color: var(--primary-color);
-            text-decoration: underline;
-        }
+        a:hover { color: var(--primary-color); text-decoration: underline; }
 
-        /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
+            .menu-toggle { display: block; }
             .content-left {
                 transform: translateX(-100%);
                 width: 90%;
                 max-width: 300px;
             }
-
-            .content-left.active {
-                transform: translateX(0);
-            }
-
+            .content-left.active { transform: translateX(0); }
             .content-right {
                 margin-left: 0;
                 width: 100%;
                 padding: 1rem;
                 padding-top: 4rem;
             }
-
-            .styling-text h2 {
-                font-size: 1.8rem;
-            }
-
-            .styling-text p {
-                font-size: 1rem;
-            }
-
-            .code-block {
-                font-size: 0.85rem;
-                padding: 1rem;
-            }
         }
 
-        @media (max-width: 480px) {
-            .content-right {
-                padding: 0.5rem;
-                padding-top: 4rem;
-            }
-
-            .styling-text {
-                margin-bottom: 2rem;
-            }
-
-            .styling-text h2 {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* Progress Bar */
         .progress-bar {
             position: fixed;
             top: 0;
@@ -328,10 +257,8 @@
             height: 3px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-blue));
             z-index: 1002;
-            transition: width 0.3s ease;
         }
 
-        /* Backdrop for mobile menu */
         .backdrop {
             display: none;
             position: fixed;
@@ -343,9 +270,7 @@
             z-index: 999;
         }
 
-        .backdrop.active {
-            display: block;
-        }
+        .backdrop.active { display: block; }
     </style>
 </head>
 <body>
@@ -358,48 +283,47 @@
             <div class="content-left-heading">
                 <h3>JS Documentation</h3>
             </div>
-            
-            <a href="#content1" class="nav-link">Introduction</a>
+            <a href="#introduction" class="nav-link">Introduction</a>
             <div class="nav-separator"></div>
-            <a href="#content2" class="nav-link">What you should know</a>
+            <a href="#prerequisites" class="nav-link">What you should know</a>
             <div class="nav-separator"></div>
-            <a href="#content3" class="nav-link">JavaScript and Java</a>
+            <a href="#js_and_java" class="nav-link">JavaScript and Java</a>
             <div class="nav-separator"></div>
-            <a href="#content4" class="nav-link">Hello World</a>
+            <a href="#hello_world" class="nav-link">Hello World</a>
             <div class="nav-separator"></div>
-            <a href="#content5" class="nav-link">Variables</a>
+            <a href="#variables" class="nav-link">Variables</a>
             <div class="nav-separator"></div>
-            <a href="#content6" class="nav-link">Declaring Variables</a>
+            <a href="#declaring_variables" class="nav-link">Declaring Variables</a>
             <div class="nav-separator"></div>
-            <a href="#content7" class="nav-link">Variable Scope</a>
+            <a href="#variable_scope" class="nav-link">Variable Scope</a>
             <div class="nav-separator"></div>
-            <a href="#content8" class="nav-link">Global Variables</a>
+            <a href="#global_variables" class="nav-link">Global Variables</a>
             <div class="nav-separator"></div>
-            <a href="#content9" class="nav-link">Constants</a>
+            <a href="#constants" class="nav-link">Constants</a>
             <div class="nav-separator"></div>
-            <a href="#content10" class="nav-link">Data Types</a>
+            <a href="#data_types" class="nav-link">Data Types</a>
             <div class="nav-separator"></div>
-            <a href="#content11" class="nav-link">if...else Statement</a>
+            <a href="#if_else" class="nav-link">if...else Statement</a>
             <div class="nav-separator"></div>
-            <a href="#content12" class="nav-link">while Statement</a>
+            <a href="#while" class="nav-link">while Statement</a>
             <div class="nav-separator"></div>
-            <a href="#content13" class="nav-link">Function Declarations</a>
+            <a href="#functions" class="nav-link">Function Declarations</a>
             <div class="nav-separator"></div>
-            <a href="#content14" class="nav-link">Reference</a>
+            <a href="#reference" class="nav-link">Reference</a>
         </nav>
 
         <main class="content-right">
-            <section id="content1" class="styling-text">
+            <section id="introduction" class="styling-text">
                 <h2>Introduction</h2>
                 <p>JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.</p>
                 <p>JavaScript contains a standard library of objects, such as Array, Date, and Math, and a core set of language elements such as operators, control structures, and statements. Core JavaScript can be extended for a variety of purposes by supplementing it with additional objects; for example:</p>
                 <ul>
-                    <li><strong>Client-side JavaScript</strong> extends the core language by supplying objects to control a browser and its Document Object Model (DOM). For example, client-side extensions allow an application to place elements on an HTML form and respond to user events such as mouse clicks, form input, and page navigation.</li>
-                    <li><strong>Server-side JavaScript</strong> extends the core language by supplying objects relevant to running JavaScript on a server. For example, server-side extensions allow an application to communicate with a database, provide continuity of information from one invocation to another of the application, or perform file manipulations on a server.</li>
+                    <li><strong>Client-side JavaScript</strong> extends the core language by supplying objects to control a browser and its Document Object Model (DOM).</li>
+                    <li><strong>Server-side JavaScript</strong> extends the core language by supplying objects relevant to running JavaScript on a server.</li>
                 </ul>
             </section>
 
-            <section id="content2" class="styling-text">
+            <section id="prerequisites" class="styling-text">
                 <h2>What you should already know</h2>
                 <p>This guide assumes you have the following basic background:</p>
                 <ul>
@@ -409,250 +333,184 @@
                 </ul>
             </section>
 
-            <section id="content3" class="styling-text">
+            <section id="js_and_java" class="styling-text">
                 <h2>JavaScript and Java</h2>
-                <p>JavaScript and Java are similar in some ways but fundamentally different in some others. The JavaScript language resembles Java but does not have Java's static typing and strong type checking. JavaScript follows most Java expression syntax, naming conventions and basic control-flow constructs which was the reason why it was renamed from LiveScript to JavaScript.</p>
-                <p>In contrast to Java's compile-time system of classes built by declarations, JavaScript supports a runtime system based on a small number of data types representing numeric, Boolean, and string values. JavaScript has a prototype-based object model instead of the more common class-based object model. The prototype-based model provides dynamic inheritance; that is, what is inherited can vary for individual objects. JavaScript also supports functions without any special declarative requirements. Functions can be properties of objects, executing as loosely typed methods.</p>
-                <p>JavaScript is a very free-form language compared to Java. You do not have to declare all variables, classes, and methods. You do not have to be concerned with whether methods are public, private, or protected, and you do not have to implement interfaces. Variables, parameters, and function return types are not explicitly typed.</p>
+                <p>JavaScript and Java are similar in some ways but fundamentally different in others. JavaScript follows most Java expression syntax, naming conventions and basic control-flow constructs which was the reason why it was renamed from LiveScript to JavaScript.</p>
+                <p>In contrast to Java's compile-time system of classes, JavaScript supports a runtime system based on a small number of data types. It has a prototype-based object model instead of the more common class-based object model, providing dynamic inheritance.</p>
             </section>
 
-            <section id="content4" class="styling-text">
+            <section id="hello_world" class="styling-text">
                 <h2>Hello World</h2>
-                <p>To get started with writing JavaScript, open the Scratchpad and write your first "Hello world" JavaScript code:</p>
-                <div class="code-block">
-<span class="keyword">function</span> <span class="function">greetMe</span>(<span class="string">yourName</span>) { 
-    <span class="function">alert</span>(<span class="string">"Hello "</span> + <span class="string">yourName</span>); 
-} 
-<span class="function">greetMe</span>(<span class="string">"World"</span>);
-                </div>
-                <p>Select the code in the pad and hit <strong>Ctrl+R</strong> to watch it unfold in your browser!</p>
-            </section>
-
-            <section id="content5" class="styling-text">
-                <h2>Variables</h2>
-                <p>You use variables as symbolic names for values in your application. The names of variables, called identifiers, conform to certain rules. A JavaScript identifier must start with a letter, underscore (_), or dollar sign ($); subsequent characters can also be digits (0-9). Because JavaScript is case sensitive, letters include the characters "A" through "Z" (uppercase) and the characters "a" through "z" (lowercase).</p>
-                <p>You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers. You can also use the Unicode escape sequences as characters in identifiers. Some examples of legal names are <code>Number_hits</code>, <code>temp99</code>, and <code>_name</code>.</p>
-            </section>
-
-            <section id="content6" class="styling-text">
-                <h2>Declaring Variables</h2>
-                <p>You can declare a variable in three ways:</p>
-                <p><strong>With the keyword var.</strong> For example,</p>
-                <div class="code-block"><span class="keyword">var</span> x = <span class="number">42</span>;</div>
-                <p>This syntax can be used to declare both local and global variables.</p>
-                <p><strong>By simply assigning it a value.</strong> For example,</p>
-                <div class="code-block">x = <span class="number">42</span>;</div>
-                <p>This always declares a global variable. It generates a strict JavaScript warning. You shouldn't use this variant.</p>
-                <p><strong>With the keyword let.</strong> For example,</p>
-                <div class="code-block"><span class="keyword">let</span> y = <span class="number">13</span>;</div>
-                <p>This syntax can be used to declare a block scope local variable. See Variable scope below.</p>
-            </section>
-
-            <section id="content7" class="styling-text">
-                <h2>Variable Scope</h2>
-                <p>When you declare a variable outside of any function, it is called a global variable, because it is available to any other code in the current document. When you declare a variable within a function, it is called a local variable, because it is available only within that function.</p>
-                <p>JavaScript before ECMAScript 2015 does not have block statement scope; rather, a variable declared within a block is local to the function (or global scope) that the block resides within. For example the following code will log 5, because the scope of x is the function (or global context) within which x is declared, not the block, which in this case is an if statement.</p>
-                <div class="code-block">
-<span class="keyword">if</span> (<span class="keyword">true</span>) { 
-    <span class="keyword">var</span> x = <span class="number">5</span>; 
-} 
-<span class="function">console.log</span>(x); <span class="comment">// 5</span>
-                </div>
-                <p>This behavior changes, when using the let declaration introduced in ECMAScript 2015.</p>
-                <div class="code-block">
-<span class="keyword">if</span> (<span class="keyword">true</span>) { 
-    <span class="keyword">let</span> y = <span class="number">5</span>; 
-} 
-<span class="function">console.log</span>(y); <span class="comment">// ReferenceError: y is not defined</span>
-                </div>
-            </section>
-
-            <section id="content8" class="styling-text">
-                <h2>Global Variables</h2>
-                <p>Global variables are in fact properties of the global object. In web pages the global object is window, so you can set and access global variables using the <code>window.variable</code> syntax. Consequently, you can access global variables declared in one window or frame from another window or frame by specifying the window or frame name. For example, if a variable called phoneNumber is declared in a document, you can refer to this variable from an iframe as <code>parent.phoneNumber</code>.</p>
-            </section>
-
-            <section id="content9" class="styling-text">
-                <h2>Constants</h2>
-                <p>You can create a read-only, named constant with the const keyword. The syntax of a constant identifier is the same as for a variable identifier: it must start with a letter, underscore or dollar sign and can contain alphabetic, numeric, or underscore characters.</p>
-                <div class="code-block"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</div>
-                <p>A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value. The scope rules for constants are the same as those for let block scope variables. If the const keyword is omitted, the identifier is assumed to represent a variable.</p>
-                <p>You cannot declare a constant with the same name as a function or variable in the same scope. For example:</p>
-                <div class="code-block">
-<span class="comment">// THIS WILL CAUSE AN ERROR</span>
-<span class="keyword">function</span> <span class="function">f</span>() {}; 
-<span class="keyword">const</span> f = <span class="number">5</span>; 
-
-<span class="comment">// THIS WILL CAUSE AN ERROR ALSO</span>
-<span class="keyword">function</span> <span class="function">f</span>() { 
-    <span class="keyword">const</span> g = <span class="number">5</span>; 
-    <span class="keyword">var</span> g; <span class="comment">//statements</span>
+                <p>To get started, open your browser's developer console and write your first "Hello world" JavaScript code:</p>
+                <pre><code class="language-js">function greetMe(yourName) {
+  alert("Hello " + yourName);
 }
-                </div>
-                <p>However, object attributes are not protected, so the following statement is executed without problems.</p>
-                <div class="code-block">
-<span class="keyword">const</span> MY_OBJECT = {<span class="string">"key"</span>: <span class="string">"value"</span>}; 
-MY_OBJECT.key = <span class="string">"otherValue"</span>;
-                </div>
+greetMe("World");</code></pre>
             </section>
 
-            <section id="content10" class="styling-text">
+            <section id="variables" class="styling-text">
+                <h2>Variables</h2>
+                <p>You use variables as symbolic names for values in your application. The names of variables, called identifiers, conform to certain rules. A JavaScript identifier must start with a letter, underscore (_), or dollar sign ($); subsequent characters can also be digits (0-9).</p>
+            </section>
+
+            <section id="declaring_variables" class="styling-text">
+                <h2>Declaring Variables</h2>
+                <p>You can declare a variable in three ways: <code>var</code>, <code>let</code>, and <code>const</code>.</p>
+                <pre><code class="language-js">// Using var (function-scoped)
+var x = 42;
+
+// Using let (block-scoped)
+let y = 13;
+
+// Using const (block-scoped, constant value)
+const z = 3.14;</code></pre>
+            </section>
+
+            <section id="variable_scope" class="styling-text">
+                <h2>Variable Scope</h2>
+                <p>When you declare a variable outside of any function, it is called a global variable. When you declare a variable within a function, it is called a local variable.</p>
+                <p>The <code>let</code> and <code>const</code> keywords, introduced in ECMAScript 2015, allow for block statement scope.</p>
+                <pre><code class="language-js">if (true) {
+  var x = 5; // x is function-scoped
+}
+console.log(x); // 5
+
+if (true) {
+  let y = 5; // y is block-scoped
+}
+// console.log(y); // ReferenceError: y is not defined</code></pre>
+            </section>
+
+            <section id="global_variables" class="styling-text">
+                <h2>Global Variables</h2>
+                <p>Global variables are properties of the global object. In web pages, the global object is <code>window</code>, so you can set and access global variables using the <code>window.variable</code> syntax.</p>
+            </section>
+
+            <section id="constants" class="styling-text">
+                <h2>Constants</h2>
+                <p>You can create a read-only, named constant with the <code>const</code> keyword. A constant cannot change value through assignment or be re-declared while the script is running.</p>
+                <pre><code class="language-js">const PI = 3.14;
+// PI = 1; // This will cause an error</code></pre>
+            </section>
+
+            <section id="data_types" class="styling-text">
                 <h2>Data Types</h2>
                 <p>The latest ECMAScript standard defines seven data types:</p>
                 <ul>
-                    <li><strong>Six data types that are primitives:</strong>
-                        <ul>
-                            <li><strong>Boolean.</strong> true and false.</li>
-                            <li><strong>null.</strong> A special keyword denoting a null value. Because JavaScript is case-sensitive, null is not the same as Null, NULL, or any other variant.</li>
-                            <li><strong>undefined.</strong> A top-level property whose value is undefined.</li>
-                            <li><strong>Number.</strong> 42 or 3.14159.</li>
-                            <li><strong>String.</strong> "Howdy"</li>
-                            <li><strong>Symbol</strong> (new in ECMAScript 2015). A data type whose instances are unique and immutable.</li>
-                        </ul>
-                    </li>
+                    <li><strong>Primitives:</strong> Boolean, null, undefined, Number, String, Symbol.</li>
                     <li><strong>and Object</strong></li>
                 </ul>
-                <p>Although these data types are a relatively small amount, they enable you to perform useful functions with your applications. Objects and functions are the other fundamental elements in the language. You can think of objects as named containers for values, and functions as procedures that your application can perform.</p>
             </section>
 
-            <section id="content11" class="styling-text">
+            <section id="if_else" class="styling-text">
                 <h2>if...else Statement</h2>
-                <p>Use the if statement to execute a statement if a logical condition is true. Use the optional else clause to execute a statement if the condition is false. An if statement looks as follows:</p>
-                <div class="code-block">
-<span class="keyword">if</span> (condition) { 
-    statement_1; 
-} <span class="keyword">else</span> { 
-    statement_2; 
-}
-                </div>
-                <p>You may also compound the statements using else if to have multiple conditions tested in sequence, as follows:</p>
-                <div class="code-block">
-<span class="keyword">if</span> (condition_1) { 
-    statement_1; 
-} <span class="keyword">else if</span> (condition_2) { 
-    statement_2; 
-} <span class="keyword">else if</span> (condition_n) { 
-    statement_n; 
-} <span class="keyword">else</span> { 
-    statement_last; 
-}
-                </div>
-                <p>In general, it's good practice to always use block statements, especially when nesting if statements:</p>
-                <div class="code-block">
-<span class="keyword">if</span> (condition) { 
-    statement_1_runs_if_condition_is_true; 
-    statement_2_runs_if_condition_is_true; 
-} <span class="keyword">else</span> { 
-    statement_3_runs_if_condition_is_false; 
-    statement_4_runs_if_condition_is_false; 
-}
-                </div>
+                <p>Use the <code>if</code> statement to execute a statement if a logical condition is true. Use the optional <code>else</code> clause to execute a statement if the condition is false.</p>
+                <pre><code class="language-js">let condition = true;
+if (condition) {
+  // statement_1 runs if condition is true
+} else {
+  // statement_2 runs if condition is false
+}</code></pre>
             </section>
 
-            <section id="content12" class="styling-text">
+            <section id="while" class="styling-text">
                 <h2>while Statement</h2>
-                <p>A while statement executes its statements as long as a specified condition evaluates to true. A while statement looks as follows:</p>
-                <div class="code-block"><span class="keyword">while</span> (condition) statement</div>
-                <p>If the condition becomes false, statement within the loop stops executing and control passes to the statement following the loop. The condition test occurs before statement in the loop is executed.</p>
-                <p><strong>Example:</strong> The following while loop iterates as long as n is less than three:</p>
-                <div class="code-block">
-<span class="keyword">var</span> n = <span class="number">0</span>; 
-<span class="keyword">var</span> x = <span class="number">0</span>; 
-<span class="keyword">while</span> (n < <span class="number">3</span>) { 
-    n++; 
-    x += n; 
+                <p>A while statement executes its statements as long as a specified condition evaluates to true.</p>
+                <pre><code class="language-js">var n = 0;
+var x = 0;
+while (n < 3) {
+  n++;
+  x += n;
 }
-                </div>
-                <p>With each iteration, the loop increments n and adds that value to x. Therefore, x and n take on the following values:</p>
-                <ul>
-                    <li>After the first pass: n = 1 and x = 1</li>
-                    <li>After the second pass: n = 2 and x = 3</li>
-                    <li>After the third pass: n = 3 and x = 6</li>
-                </ul>
+// After the loop, n will be 3 and x will be 6</code></pre>
             </section>
 
-            <section id="content13" class="styling-text">
+            <section id="functions" class="styling-text">
                 <h2>Function Declarations</h2>
-                <p>A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:</p>
-                <ul>
-                    <li>The name of the function.</li>
-                    <li>A list of arguments to the function, enclosed in parentheses and separated by commas.</li>
-                    <li>The JavaScript statements that define the function, enclosed in curly brackets, { }.</li>
-                </ul>
-                <p>For example, the following code defines a simple function named square:</p>
-                <div class="code-block">
-<span class="keyword">function</span> <span class="function">square</span>(number) { 
-    <span class="keyword">return</span> number * number; 
-}
-                </div>
-                <p>The function square takes one argument, called number. The function consists of one statement that says to return the argument of the function (that is, number) multiplied by itself. The return statement specifies the value returned by the function.</p>
-                <div class="code-block"><span class="keyword">return</span> number * number;</div>
+                <p>A function definition consists of the <code>function</code> keyword, followed by the name of the function, a list of parameters, and the JavaScript statements that define the function.</p>
+                <pre><code class="language-js">function square(number) {
+  return number * number;
+}</code></pre>
             </section>
 
-            <section id="content14" class="styling-text">
+            <section id="reference" class="styling-text">
                 <h2>Reference</h2>
                 <ul>
-                    <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">MDN Web Docs</a></li>
+                    <li>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
                 </ul>
             </section>
         </main>
     </div>
 
+    <!-- Prism.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
     <script>
-        // Mobile menu functionality
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const backdrop = document.getElementById('backdrop');
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('backdrop');
+            const progressBar = document.getElementById('progressBar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.styling-text');
 
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            backdrop.classList.toggle('active');
-        });
+            const toggleMenu = () => {
+                sidebar.classList.toggle('active');
+                backdrop.classList.toggle('active');
+            };
+            
+            menuToggle.addEventListener('click', toggleMenu);
+            backdrop.addEventListener('click', toggleMenu);
 
-        backdrop.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            backdrop.classList.remove('active');
-        });
+            const updateProgressBar = () => {
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = `${scrollPercentage}%`;
+            };
 
-        // Progress bar
-        const progressBar = document.getElementById('progressBar');
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercentage = (scrollTop / scrollHeight) * 100;
-            progressBar.style.width = scrollPercentage + '%';
-        });
+            const updateActiveLink = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
 
-        // Active navigation link
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.styling-text');
-
-        function updateActiveLink() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (window.innerWidth <= 768) {
+                            toggleMenu();
+                        }
+                    }
+                });
             });
-        }
 
-        window.addEventListener('scroll', updateActiveLink);
-        window.addEventListener('load', updateActiveLink);
+            window.addEventListener('scroll', () => {
+                updateProgressBar();
+                updateActiveLink();
+            });
 
-        // Smooth scrolling
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start
+            window.addEventListener('load', () => {
+                updateProgressBar();
+                updateActiveLink();
+            });
+        });
+    </script>
+</body>
+</html>
